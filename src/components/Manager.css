@@ -1,0 +1,27 @@
+.manager-cont {
+  padding: 10px;
+  text-align: end;
+}
+
+.manager-cont .textIn {
+  width: 100%;
+  height: 95px !important;
+  resize: none;
+}
+
+.manager-cont button {
+  width: 60px;
+  height: 30px;
+  border-style: none;
+  border-radius: 5px;
+  font-family: 'Macondo', cursive;
+}
+
+.date-picker {
+  width: 220px;
+  margin: 10px auto;
+}
+
+.manager-cont button:hover {
+  background-color: rgb(242, 242, 83, 0.7);
+}

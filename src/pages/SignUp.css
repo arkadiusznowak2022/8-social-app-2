@@ -1,0 +1,23 @@
+.signup-form {
+  width: 250px;
+  margin: 20vh auto;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  border: 1px solid rgb(181, 180, 180);
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255, 0.3);
+
+  position: relative;
+}
+
+.signup-form button {
+  font-family: 'Roboto Slab', serif;
+}
+
+.signup-form input {
+  text-align: center;
+}

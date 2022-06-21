@@ -1,0 +1,28 @@
+.like-or-not-cont {
+  position: absolute;
+  bottom: -28px;
+  /* bottom: 0; */
+  left: 25px;
+
+  font-size: 12px;
+  transition: 0.5s;
+}
+
+.like-or-not-cont.active {
+  bottom: 0;
+}
+
+.like,
+.dislike {
+  margin: 3px;
+}
+
+.like:hover,
+.dislike:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.dislike {
+  transform: translateY(3px);
+}

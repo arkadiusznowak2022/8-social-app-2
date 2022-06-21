@@ -1,0 +1,50 @@
+.main-nav {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: rgb(32, 32, 129);
+  border-bottom: 2px solid rgb(242, 242, 83);
+}
+
+.main-nav h2 {
+  margin: 0;
+  position: relative;
+  font-size: calc(15px + 0.5vmin);
+  color: rgb(242, 242, 83);
+  font-family: 'Macondo', cursive;
+}
+
+.main-nav ul {
+  margin: 0;
+}
+
+.main-nav h2::after {
+  position: absolute;
+  top: 0;
+  right: -42px;
+  content: 'Chat your way to the stars';
+  font-size: 5px;
+  width: 40px;
+}
+
+.main-nav h2:hover {
+  cursor: pointer;
+}
+
+.nav-item {
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: calc(15px + 0.5vmin);
+  color: rgb(255, 255, 255);
+  font-family: 'Roboto Slab', serif;
+
+  background-color: inherit;
+  border: none;
+}
+
+.nav-item:hover {
+  color: rgb(242, 242, 83);
+  cursor: pointer;
+}

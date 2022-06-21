@@ -1,0 +1,21 @@
+.hello-cont {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  font-family: 'Roboto Slab', serif;
+
+  height: 50vh;
+  width: 100%;
+  margin-top: 10vmin;
+}
+
+.hello-cont h1 {
+  font-size: 5vmax;
+  padding: 10px;
+}
+
+.hello-cont h2 {
+  padding: 20px calc(30px + 2vmax);
+  font-size: 2.3vmax;
+}

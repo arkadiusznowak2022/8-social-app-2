@@ -1,0 +1,10 @@
+.main-cont {
+  display: flex;
+  position: relative;
+}
+
+@media (max-width: 950px) {
+  .main-cont {
+    flex-direction: column-reverse;
+  }
+}

@@ -1,58 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
+import React from 'react';
+import {
+  HashRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
+import Nav from './components/Nav';
+import SignUp from './pages/SignUp';
+import LoggedOut from './pages/LoggedOut';
+import Login from './pages/Login';
+import { useSelector } from 'react-redux';
+import { selectToken } from './redux/userSlice';
+import Home from './pages/Home';
 
-function App() {
+function App(): JSX.Element {
+  const token: string = useSelector(selectToken);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <Router>
+      <Nav />
+      <Routes>
+        <Route
+          path='/'
+          element={
+            token ? (
+              <Navigate replace to='home' />
+            ) : (
+              <Navigate replace to='loggedout' />
+            )
+          }
+        />
+        <Route path='/loggedout' element={<LoggedOut />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<SignUp />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+
+// const token = useSelector(selectToken)
+// const token = store.getState().user.token

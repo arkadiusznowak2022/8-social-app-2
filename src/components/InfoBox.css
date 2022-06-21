@@ -1,0 +1,18 @@
+.info-cont {
+  position: absolute;
+  top: -15vh;
+  left: 0;
+  right: 0;
+
+  border: 1px solid rgb(181, 180, 180);
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255, 0.3);
+}
+
+.info-cont .info-text {
+  margin: 10px 2px;
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+  font-size: 10px;
+  color: rgb(247, 247, 247);
+}

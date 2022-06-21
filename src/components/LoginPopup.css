@@ -1,0 +1,12 @@
+.popup-cont {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+
+  background-color: rgb(242, 242, 83, 0.4);
+  backdrop-filter: blur(3px);
+
+  padding: 10vh;
+}
