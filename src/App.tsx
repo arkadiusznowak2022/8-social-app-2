@@ -41,6 +41,3 @@ function App(): JSX.Element {
 }
 
 export default App;
-
-// const token = useSelector(selectToken)
-// const token = store.getState().user.token

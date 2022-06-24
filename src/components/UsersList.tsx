@@ -1,35 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { ApiFollowsArgs, User } from '../data/types';
-import { useFollowsQuery } from '../redux/apiSlice';
+import { useGetFollowsQuery, useEditFollowsMutation } from '../redux/apiSlice';
 import './UsersList.css';
 
 type Props = {
-  refetch: () => void;
+  refetchPosts: () => void;
 };
 
-function UsersList({ refetch }: Props) {
+function UsersList({ refetchPosts }: Props) {
   const [users, setUsers] = useState<User[]>([]);
   const [followsType, setFollowsType] = useState<string>('allfollows');
   const [apiArgs, setApiArgs] = useState<ApiFollowsArgs>({ url: 'allfollows' });
 
-  const { data: answerFollows } = useFollowsQuery(apiArgs);
+  const { data: answerFollows } = useGetFollowsQuery(apiArgs);
+  const [editFollows] = useEditFollowsMutation();
 
   useEffect(() => {
     if (!answerFollows) return;
-    if (
-      answerFollows.message === 'Follow has been removed' ||
-      answerFollows.message === 'Follow has been added'
-    ) {
-      setApiArgs({ url: followsType });
-      return;
-    }
-
+    console.log('glowny effect');
     setUsers(answerFollows);
-    refetch();
-  }, [answerFollows, followsType, refetch]);
+    refetchPosts();
+  }, [answerFollows, followsType, refetchPosts]);
 
   const deleteUser = (e: React.MouseEvent<HTMLElement>) => {
-    setApiArgs({
+    editFollows({
       url: 'disfollow',
       follows: {
         leader_id: (e.target as HTMLElement).id,
@@ -38,7 +32,7 @@ function UsersList({ refetch }: Props) {
   };
 
   const addUser = (e: React.MouseEvent<HTMLElement>) => {
-    setApiArgs({
+    editFollows({
       url: 'follow',
       follows: {
         leader_id: (e.target as HTMLElement).id,

@@ -14,7 +14,7 @@ function Home() {
   const [postsArgs, setPostsArgs] = useState<ApiPostsArgs>({ url: 'latest' });
   const [history, setHistory] = useState<ApiPostsArgs>({ url: 'latest' });
 
-  const { data: answerPosts, refetch } = usePostQuery(postsArgs);
+  const { data: answerPosts, refetch: refetchPosts } = usePostQuery(postsArgs);
   const { data: answerProfile } = useUserQuery({ url: 'profile' });
 
   useEffect(() => {
@@ -43,7 +43,7 @@ function Home() {
         renderLastPosts={postsArgs}
         userName={answerProfile?.username || ''}
       />
-      <UsersList refetch={refetch} />
+      <UsersList refetchPosts={refetchPosts} />
     </div>
   );
 }

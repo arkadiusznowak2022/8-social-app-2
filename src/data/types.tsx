@@ -29,7 +29,8 @@ export type ApiAnswerPosts = Post[] & { message?: string; post: Post };
 
 // API ANSWER FOLLOWS
 
-export type ApiAnswerFollows = User[] & { message?: string };
+export type ApiAnswerGetFollows = User[];
+export type ApiAnswerEditFollows = { message?: string };
 
 // USER
 

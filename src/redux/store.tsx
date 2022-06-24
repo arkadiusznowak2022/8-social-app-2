@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { socialApi } from './apiSlice';
 import { user } from './userSlice';
+import { socialApi } from './apiSlice';
 
 export const store = configureStore({
   reducer: {

@@ -6,7 +6,8 @@ import {
   ApiPostsArgs,
   ApiAnswerPosts,
   ApiFollowsArgs,
-  ApiAnswerFollows,
+  ApiAnswerGetFollows,
+  ApiAnswerEditFollows,
 } from '../data/types';
 
 export const socialApi = createApi({
@@ -22,6 +23,7 @@ export const socialApi = createApi({
       return headers;
     },
   }),
+  tagTypes: ['Follows'],
   refetchOnMountOrArgChange: true,
   endpoints: (builder) => ({
     user: builder.query<ApiAnswerUser, ApiUserArgs>({
@@ -42,7 +44,7 @@ export const socialApi = createApi({
         };
       },
     }),
-    follows: builder.query<ApiAnswerFollows, ApiFollowsArgs>({
+    getFollows: builder.query<ApiAnswerGetFollows, ApiFollowsArgs>({
       query: (data) => {
         return {
           url: `follows/${data.url}`,
@@ -50,10 +52,22 @@ export const socialApi = createApi({
           body: data.follows,
         };
       },
+      providesTags: ['Follows'],
+    }),
+    editFollows: builder.mutation<ApiAnswerEditFollows, ApiFollowsArgs>({
+      query: (data) => {
+        return {
+          url: `follows/${data.url}`,
+          method: 'POST',
+          body: data.follows,
+        };
+      },
+      invalidatesTags: ['Follows'],
     }),
   }),
 });
 
 export const { useUserQuery } = socialApi;
 export const { usePostQuery } = socialApi;
-export const { useFollowsQuery } = socialApi;
+export const { useGetFollowsQuery } = socialApi;
+export const { useEditFollowsMutation } = socialApi;
