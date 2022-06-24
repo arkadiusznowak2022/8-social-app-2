@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/8-social-app-2/static/css/main.ba30e028.css",
+    "main.js": "/8-social-app-2/static/js/main.ec64ce00.js",
+    "static/media/wp2726525.webp": "/8-social-app-2/static/media/wp2726525.2072300c7e5b7d5105ee.webp",
+    "index.html": "/8-social-app-2/index.html",
+    "main.ba30e028.css.map": "/8-social-app-2/static/css/main.ba30e028.css.map",
+    "main.ec64ce00.js.map": "/8-social-app-2/static/js/main.ec64ce00.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ba30e028.css",
+    "static/js/main.ec64ce00.js"
+  ]
+}
